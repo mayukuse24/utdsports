@@ -1,24 +1,17 @@
 // attempt to connect to database
 
 'use strict';
-const express =  require('express');
 const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const app  = express();
-app.set('view engine','pug');
-
-//Parse request body
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
 
 //Responses
 module.exports = {
+	conn: undefined,
 	connect: function () {
 		let config = {
 			user: 'root',
 			database: 'utdsports',
 			password: '',
-			socketPath = `/cloudsql/utdsports:us-central1:instance-1`
+			socketPath = `/cloudsql/utdsports:us-central1:instance-`
 		};
 		
 		let connection = mysql.createConnection(config);
@@ -28,7 +21,10 @@ module.exports = {
 					console.error('Error connecting '+err.stack);
 					return;
 			}
+
 			console.log('Connected as thread id: '+connection.threadId);
+
+			this.conn = connection;
 		});
 	}
 };

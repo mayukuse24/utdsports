@@ -1,6 +1,3 @@
-// attempt to connect to database
-
-'use strict';
 const mysql = require('mysql');
 
 //Responses

@@ -17,10 +17,11 @@
     "test": "mocha --exit test/*.test.js"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "4.16.3",
+    "lodash": "4.17.15"
   },
   "devDependencies": {
-    "mocha": "^6.1.4",
-    "supertest": "^4.0.2"
+    "mocha": "6.1.4",
+    "supertest": "4.0.2"
   }
 }

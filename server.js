@@ -1,16 +1,14 @@
 // attempt to connect to database
 
-let pool;
-const createPool = async() =>{
-	pool = await mysql.createPool({
-		user:
-		password: process.env.NBKpyMaG9e2wJuLC
-		database:process.env.utdsports
-		socketPath: 
-		
-
-});
-
-
-};
-createPool();
+module.exports = {
+	let pool;
+	const createPool = async() =>{
+		pool = await mysql.createPool({
+			user: 'root',
+			password: '',
+			database: 'utdsports',
+			socketPath: '/cloudsql/utdsports:us-central1:instance-1'
+		});
+	};
+	createPool();
+}

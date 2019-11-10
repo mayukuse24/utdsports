@@ -29,6 +29,17 @@ if(process.env.CONNECTION_NAME){
 
 let connection = mysql.createConnection(config);
 
+
+        connection.connect(function(err){
+
+        if(err){
+                console.error('Error connecting '+err.stack);
+                return;
+        }
+        console.log('Connected as thread id: '+connection.threadId);
+
+});
+
 /* Local checking
 let connection = mysql.createConnectin({
 
